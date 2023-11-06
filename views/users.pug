@@ -1,0 +1,25 @@
+html
+  head
+    title User List
+    link(rel="stylesheet" href="/stylesheets/usersheet.css")
+  body
+    h1 User List
+    table
+      thead
+        tr
+          th ID
+          th First Name
+          th Last Name
+          th Email
+          th Actions
+      tbody
+        each user in users
+          tr
+            td= user.id
+            td= user.firstName
+            td= user.lastName
+            td
+              a(href=`mailto:${user.email}`)= user.email
+            td
+              a.edit-button(href=`/edit/${user.id}`) edit
+              a.delete-button(href=`/delete/${user.id}`) delete
